@@ -4,8 +4,8 @@ import { IoIosClose } from 'react-icons/io';
 function Filter() {
   return (
     <div className='filter-container'>
-      <select name='regions' className='region-select'>
-        <option value='all' disabled selected hidden>
+      <select name='regions' className='region-select' defaultValue={'all'}>
+        <option value='all' disabled hidden>
           Search by Region
         </option>
         <option value='africa'>Africa</option>
