@@ -19,7 +19,7 @@ export const fetchCountries = createAsyncThunk(
 );
 
 const initialState = {
-  countriesToRender: [],
+  countriesToRender: ['ger','usa','bra','isl','afg','ala','alb','012'],
   fetchedCountries: [],
   allCountries: [],
 };
