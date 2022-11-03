@@ -22,6 +22,7 @@ const initialState = {
   countriesToRender: ['ger','usa','bra','isl','afg','ala','alb','012'],
   fetchedCountries: [],
   allCountries: [],
+  isCountrySelected : false,
 };
 
 const countriesSlice = createSlice({
@@ -30,6 +31,9 @@ const countriesSlice = createSlice({
   reducers : {
     setCountriesToRender : (state, action) => {
       state.countriesToRender = action.payload;
+    },
+    setIfCountrySelected : (state) => {
+      state.isCountrySelected = !state.isCountrySelected;
     }
   },
   extraReducers: (builder) => {
@@ -43,4 +47,4 @@ const countriesSlice = createSlice({
 });
 
 export default countriesSlice.reducer;
-export const {setCountriesToRender} = countriesSlice.actions;
+export const {setCountriesToRender, setIfCountrySelected} = countriesSlice.actions;
