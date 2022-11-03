@@ -5,6 +5,7 @@ import Filter from './components/Filter';
 import Header from './components/Header';
 import './styles/main.css';
 import { getAllCountries } from './store/countriesSlice';
+import CountriesList from './components/CountriesList';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
         <div className='main-container'>
           <Browser/>
           <Filter />
+          <CountriesList />
         </div>
       </main>
     </div>
