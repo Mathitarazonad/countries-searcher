@@ -1,14 +1,14 @@
 import React from 'react'
 
-function CountryCard() {
+function CountryCard({country}) {
   return (
     <article className='country-card'>
       <img />
       <section className='country-info'>
-        <h2>Germany</h2>
-        <p><b>Population: </b>81,770,900</p>
-        <p><b>Region: </b>Europe</p>
-        <p><b>Capital: </b>Berlin</p>
+        <h2>{country.name.common}</h2>
+        <p><b>Population: </b>{country.population}</p>
+        <p><b>Region: </b>{country.subregion}</p>
+        <p><b>Capital: </b>{country.capital}</p>
       </section>
     </article>
   )
