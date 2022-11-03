@@ -1,14 +1,28 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Browser from './components/Browser';
 import Filter from './components/Filter';
 import Header from './components/Header';
 import './styles/main.css';
+import { getAllCountries } from './store/countriesSlice';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCountries())
+  }, [dispatch])
+
+
   return (
     <div className="App">
       <Header />
-      <Browser/>
-      <Filter />
+      <main>
+        <div className='main-container'>
+          <Browser/>
+          <Filter />
+        </div>
+      </main>
     </div>
   );
 }
