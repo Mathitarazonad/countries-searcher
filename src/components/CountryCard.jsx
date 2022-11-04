@@ -11,7 +11,7 @@ function CountryCard({country}) {
 
   return (
     <article className='country-card' onClick={() => handleClick(country.cca3)}>
-      <img />
+      <img src={country.flags.png} alt='countryFlag'/>
       <section className='country-info'>
         <h2>{country.name.common}</h2>
         <p><b>Population: </b>{Intl.NumberFormat('en-US').format(country.population)}</p>
