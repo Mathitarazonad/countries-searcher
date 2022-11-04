@@ -1,8 +1,16 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { setCountrySelected, setIfCountrySelected } from '../store/countriesSlice';
 
 function CountryCard({country}) {
+  const dispatch = useDispatch();
+  const handleClick = (country) => {
+    dispatch(setIfCountrySelected());
+    dispatch(setCountrySelected(country));
+  };
+
   return (
-    <article className='country-card'>
+    <article className='country-card' onClick={() => handleClick(country.cca3)}>
       <img />
       <section className='country-info'>
         <h2>{country.name.common}</h2>
