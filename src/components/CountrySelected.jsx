@@ -53,7 +53,7 @@ function CountrySelected({ country }) {
         <div className="-culture">
           <p>
             <b>Top Level Domain: </b>
-            {country.tld}
+            {country.tld[0]}
           </p>
           <p>
             <b>Currencies: </b>
