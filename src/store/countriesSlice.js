@@ -26,6 +26,7 @@ const initialState = {
   allCountries: [],
   isCountrySelected: false,
   countrySelected: '',
+  regionSelected: '',
 };
 
 const countriesSlice = createSlice({
@@ -41,6 +42,9 @@ const countriesSlice = createSlice({
     setCountrySelected: (state, action) => {
       state.countrySelected = action.payload;
     },
+    setRegionSelected: (state, action) => {
+      state.regionSelected = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(getAllCountries.fulfilled, (state, action) => {
@@ -59,4 +63,5 @@ export const {
   setCountriesToRender,
   setIfCountrySelected,
   setCountrySelected,
+  setRegionSelected,
 } = countriesSlice.actions;
