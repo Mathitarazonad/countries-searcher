@@ -48,7 +48,9 @@ const countriesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getAllCountries.fulfilled, (state, action) => {
-      state.allCountries.push(action.payload);
+      state.allCountries.push(action.payload.sort((a, b) =>
+      a.name.common.localeCompare(b.name.common)
+    ));
     });
     builder.addCase(fetchCountries.fulfilled, (state, action) => {
       state.fetchedCountries = action.payload.sort((a, b) =>
