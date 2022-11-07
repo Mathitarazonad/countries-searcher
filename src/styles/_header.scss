@@ -1,0 +1,51 @@
+@use 'variables' as *;
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem $Mobile-padding;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.14);
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .theme-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 10px;
+
+    .theme-btn {
+      vertical-align:bottom;
+      display: flex;
+      align-items: center;
+      width: 45px;
+      border-radius: 15px;
+      background-color: black;
+      padding: 3px;
+
+      svg {
+        transition: .5s;
+        background-color: white;
+        border-radius: 50%;
+        fill: black;
+        padding: 1px;
+      }
+
+      // &:hover {
+      //   svg {
+      //     transform: translateX(145%);
+      //     transition: .5s;
+      //   }
+      // }
+    }
+
+    p {
+      font-size: .925rem;
+      font-weight: 800;
+    }
+  }
+
+}
