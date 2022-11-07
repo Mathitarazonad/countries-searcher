@@ -26,7 +26,7 @@ const initialState = {
   allCountries: [],
   isCountrySelected: false,
   countrySelected: '',
-  regionSelected: '',
+  regionSelected: 'all',
 };
 
 const countriesSlice = createSlice({
