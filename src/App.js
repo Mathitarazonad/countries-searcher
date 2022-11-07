@@ -10,7 +10,10 @@ import CountrySelected from './components/CountrySelected';
 
 function App() {
   const dispatch = useDispatch();
-  const allCountries = useSelector(store => store.countries.allCountries).flat();
+  const allCountries = useSelector(
+    (store) => store.countries.allCountries
+  ).flat();
+  const darkMode = useSelector((store) => store.themes.darkMode);
 
   useEffect(() => {
     dispatch(getAllCountries());
@@ -24,9 +27,8 @@ function App() {
     (store) => store.countries.countrySelected
   );
 
-
   return (
-    <div className="App">
+    <div className={darkMode ? 'App dark-mode' : 'App'}>
       <Header />
       <main>
         <div className="main-container">
@@ -37,8 +39,11 @@ function App() {
               <CountriesList />
             </>
           ) : (
-            <CountrySelected country={allCountries.find(
-              (country) => country.cca3 === countrySelected)}/>
+            <CountrySelected
+              country={allCountries.find(
+                (country) => country.cca3 === countrySelected
+              )}
+            />
           )}
         </div>
       </main>
