@@ -12,8 +12,13 @@ function CountriesList() {
   const fetchedCountries = useSelector(
     (store) => store.countries.fetchedCountries
   );
-  const regionSelected = useSelector(store => store.countries.regionSelected);
-  const allCountries = useSelector(store => store.countries.allCountries).flat();
+  const regionSelected = useSelector((store) => store.countries.regionSelected);
+  const allCountries = useSelector(
+    (store) => store.countries.allCountries
+  ).flat();
+  const searchedCountry = useSelector(
+    (store) => store.countries.searchedCountry
+  );
 
   useEffect(() => {
     dispatch(fetchCountries(countriesToRender));
@@ -21,12 +26,24 @@ function CountriesList() {
 
   return (
     <div className="countries-container">
-      {regionSelected === '' || regionSelected === 'all' ?
-      fetchedCountries.map((country) => (
-        <CountryCard country={country} key={uuidv4()} />
-      )) : allCountries
-      .filter(country => country.region === regionSelected)
-      .map(country => <CountryCard country={country} key={uuidv4()} />)}
+      {regionSelected === 'all' && searchedCountry === ''
+        ? fetchedCountries.map((country) => (
+            <CountryCard country={country} key={uuidv4()} />
+          ))
+        : searchedCountry !== '' && regionSelected === 'all'
+        ? allCountries
+            .filter((country) =>
+              country.name.common.toLowerCase().includes(searchedCountry)
+            )
+            .map((country) => <CountryCard country={country} key={uuidv4()} />)
+        : searchedCountry !== '' && regionSelected !== 'all' 
+        ? allCountries
+        .filter(country => country.region === regionSelected)
+        .filter(country => country.name.common.toLowerCase().includes(searchedCountry))
+        .map((country) => <CountryCard country={country} key={uuidv4()} />)
+        : allCountries
+            .filter((country) => country.region === regionSelected)
+            .map((country) => <CountryCard country={country} key={uuidv4()} />)}
     </div>
   );
 }
