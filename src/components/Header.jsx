@@ -1,7 +1,7 @@
 import React from 'react';
 import {TbMoon} from 'react-icons/tb';
 import { useDispatch } from 'react-redux';
-import changeTheme from '../store/themeSlice';
+import { changeTheme } from '../store/themeSlice';
 
 function Header () {
   const dispatch = useDispatch();
