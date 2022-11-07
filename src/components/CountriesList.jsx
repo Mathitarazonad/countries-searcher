@@ -17,11 +17,11 @@ function CountriesList() {
 
   useEffect(() => {
     dispatch(fetchCountries(countriesToRender));
-  }, [countriesToRender]);
+  }, [dispatch, countriesToRender]);
 
   return (
     <div className="countries-container">
-      {regionSelected === '' ?
+      {regionSelected === '' || regionSelected === 'all' ?
       fetchedCountries.map((country) => (
         <CountryCard country={country} key={uuidv4()} />
       )) : allCountries
