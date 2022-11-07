@@ -15,7 +15,7 @@ function CountryCard({country}) {
       <section className='country-info'>
         <h2>{country.name.common}</h2>
         <p><b>Population: </b>{Intl.NumberFormat('en-US').format(country.population)}</p>
-        <p><b>Region: </b>{country.subregion}</p>
+        <p><b>Region: </b>{country.region}</p>
         <p><b>Capital: </b>{country.capital}</p>
       </section>
     </article>
