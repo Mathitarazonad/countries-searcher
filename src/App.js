@@ -13,7 +13,7 @@ function App() {
   const allCountries = useSelector(
     (store) => store.countries.allCountries
   ).flat();
-  const darkMode = useSelector((store) => store.themes.darkMode);
+  const darkMode = useSelector((store) => store.theme.darkMode);
 
   useEffect(() => {
     dispatch(getAllCountries());

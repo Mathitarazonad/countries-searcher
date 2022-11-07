@@ -14,7 +14,7 @@ function Header () {
     <header>
       <h2>Where in the world?</h2>
       <div className='theme-container'>
-        <div className='theme-btn'>
+        <div className='theme-btn' onClick={() => handleClick()}>
           <TbMoon />
         </div>
         <p>Dark Mode</p>
