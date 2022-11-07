@@ -27,6 +27,7 @@ const initialState = {
   isCountrySelected: false,
   countrySelected: '',
   regionSelected: 'all',
+  searchedCountry: '',
 };
 
 const countriesSlice = createSlice({
@@ -44,7 +45,10 @@ const countriesSlice = createSlice({
     },
     setRegionSelected: (state, action) => {
       state.regionSelected = action.payload;
-    }
+    },
+    setSearchedCountry: (state, action) => {
+      state.searchedCountry = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getAllCountries.fulfilled, (state, action) => {
@@ -66,4 +70,5 @@ export const {
   setIfCountrySelected,
   setCountrySelected,
   setRegionSelected,
+  setSearchedCountry,
 } = countriesSlice.actions;
