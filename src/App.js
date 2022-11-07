@@ -34,8 +34,10 @@ function App() {
         <div className="main-container">
           {!isCountrySelected ? (
             <>
-              <Browser />
-              <Filter />
+              <div className='countries-filters'>
+                <Browser />
+                <Filter />
+              </div>
               <CountriesList />
             </>
           ) : (
