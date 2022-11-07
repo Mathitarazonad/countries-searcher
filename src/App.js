@@ -47,6 +47,10 @@ function App() {
           )}
         </div>
       </main>
+      <footer>
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Mathías Tarazona</a>.
+      </footer>
     </div>
   );
 }
