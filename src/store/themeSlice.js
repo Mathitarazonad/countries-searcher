@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const themeSlice = createSlice({
-  name: themes,
+  name: 'themes',
   initialState,
   reducers : {
     changeTheme : (state) => {
