@@ -6,8 +6,9 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem $Mobile-padding;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
   color: $Very-dark-blue;
+  position: relative;
 
   h2 {
     font-size: 1rem;
@@ -53,8 +54,7 @@ header {
     transition: .5s;
     background-color: $Dark-blue;
     color: $White;
-    border-bottom: .5px solid rgba(0, 0, 0, 0.305);
-    box-shadow: 0px 6px 6px 1px rgba(0,0,0,0.73);
+    box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.117);
     
     p {
       font-weight: 600;
