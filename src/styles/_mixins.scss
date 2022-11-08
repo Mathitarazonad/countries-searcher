@@ -4,10 +4,23 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(140%);
+    transform: translateX(145%);
+  }
+}
+
+@keyframes light-change {
+  from {
+    transform: translateX(145%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 
 @mixin BtnThemeChanger ($time) {
   animation: theme-change $time linear both;
+}
+
+@mixin BtnLightChange () {
+  animation: light-change .5s linear both;
 }
