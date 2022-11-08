@@ -1,3 +1,4 @@
+@use 'variables' as *;
 //Animations and mixins
 @keyframes theme-change {
   from {
@@ -23,4 +24,10 @@
 
 @mixin BtnLightChange () {
   animation: light-change .5s linear both;
+}
+
+@mixin DarkModeTheme () {
+  transition: .5s;
+  background-color: $Dark-blue;
+  color: $White;
 }
