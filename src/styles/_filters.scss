@@ -1,0 +1,122 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.countries-filters {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  .browser-container {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: $White;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
+    color: $Dark-gray;
+
+    input {
+      border: none;
+      font-size: .95rem;
+      color: $Dark-gray;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    svg {
+      font-size: 1.4rem;
+    }
+  }
+
+  .filter-container {
+    width: 215px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: .85rem;
+    font-weight: 600;
+
+    .filter-bar {
+      border-radius: 5px;
+      box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
+      padding: 1rem 1.5rem;
+      background-color: $White;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+
+      .filter-icons {
+        display: flex;
+        align-items: center; 
+        font-size: 1.1rem;
+        gap: 5px;
+
+        #close-icon {
+          background-color: $Very-dark-blue;
+          border-radius: 50%;
+          fill: $White;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .regions-list {
+      width: inherit;
+      top: 244px;
+      position: absolute;
+      background-color: $White;
+      border-radius: 5px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  }
+}
+
+//Dark Mode 
+.App.dark-mode {
+  .browser-container {
+    @include DarkModeTheme();
+
+    input {
+      @include DarkModeTheme();
+
+      &::placeholder {
+        color: $White;
+      }
+    }
+  }
+
+  .filter-container {
+    .filter-bar {
+      @include DarkModeTheme();
+      font-weight: 300;
+
+      #close-icon {
+        transition: .5s;
+        background-color: $White;
+        fill: $Dark-blue;
+      }
+    }
+
+    .regions-list {
+      @include DarkModeTheme();
+      font-weight: 300;
+    }
+  }
+}
+
