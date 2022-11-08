@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 header {
   display: flex;
@@ -6,6 +7,7 @@ header {
   justify-content: space-between;
   padding: 1.5rem $Mobile-padding;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.14);
+  color: $Very-dark-blue;
 
   h2 {
     font-size: 1rem;
@@ -18,28 +20,23 @@ header {
     gap: 10px;
 
     .theme-btn {
+      transition: .5s;
       vertical-align:bottom;
       display: flex;
       align-items: center;
       width: 45px;
       border-radius: 15px;
-      background-color: black;
+      background-color: $Very-dark-blue;
       padding: 3px;
 
       svg {
         transition: .5s;
         background-color: white;
         border-radius: 50%;
-        fill: black;
+        fill: $Very-dark-blue;
         padding: 1px;
+        @include BtnLightChange();
       }
-
-      // &:hover {
-      //   svg {
-      //     transform: translateX(145%);
-      //     transition: .5s;
-      //   }
-      // }
     }
 
     p {
@@ -48,4 +45,34 @@ header {
     }
   }
 
+}
+
+//Dark Mode
+.App.dark-mode{
+  header {
+    transition: .5s;
+    background-color: $Dark-blue;
+    color: $White;
+    border-bottom: .5px solid rgba(0, 0, 0, 0.305);
+    box-shadow: 0px 6px 6px 1px rgba(0,0,0,0.73);
+    
+    p {
+      font-weight: 600;
+    }
+
+    .theme-container {
+      .theme-btn {
+        transition: .5s;
+        background-color: $White;
+
+        svg {
+          @include BtnThemeChanger(.5s);
+          transition: .5s;
+          padding: 2px;
+          background-color: $Dark-background;
+          fill: $White;
+        }
+      }
+    }
+  }
 }
