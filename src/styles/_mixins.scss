@@ -1,0 +1,13 @@
+//Animations and mixins
+@keyframes theme-change {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(140%);
+  }
+}
+
+@mixin BtnThemeChanger ($time) {
+  animation: theme-change $time linear both;
+}
