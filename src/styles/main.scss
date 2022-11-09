@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 @use 'header';
 @use 'filters';
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
@@ -11,6 +12,7 @@
 }
 
 .main-container {
+  transition: .5s;
   padding: $Mobile-padding;
   display: flex;
   flex-direction: column;
@@ -29,3 +31,10 @@ footer {
   padding-right: .5rem;
 }
 
+//Dark Mode
+.App.dark-mode {
+  .main-container {
+    transition: .5s;
+    background-color: $Dark-background;
+  }
+}

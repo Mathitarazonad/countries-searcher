@@ -216,6 +216,7 @@ header .theme-container p {
 }
 
 .main-container {
+  transition: 0.5s;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -232,4 +233,9 @@ footer {
   right: 0;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.App.dark-mode .main-container {
+  transition: 0.5s;
+  background-color: hsl(207deg, 26%, 17%);
 }/*# sourceMappingURL=main.css.map */
