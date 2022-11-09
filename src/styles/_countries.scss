@@ -1,0 +1,142 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.countries-container {
+  margin-bottom: 5rem;
+  padding: .5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+
+  .country-card {
+    transition: 5s;
+    background-color: $White;
+    box-shadow: 0 3px 12px 4px rgba(0, 0, 0, 0.247);
+    border-radius: 5px;
+    padding-bottom: 2rem;
+
+    img {
+      height: 200px;
+      width: 100%;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+
+    .country-info {
+      padding: 1rem 2rem;
+
+      h2 {
+        font-weight: 800;
+        font-size: 1.35rem;
+        letter-spacing: .5px;
+        margin-bottom: .5rem;
+      }
+
+      p {
+        letter-spacing: .5px;
+        font-size: .95rem;
+        margin-bottom: .4rem;
+      }
+    }
+  }
+}
+
+.country-card-selected {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 1rem;
+  gap: 3rem;
+
+  button {
+    transition: .5s;
+    color: $Very-dark-blue;
+    font-size: .95rem;
+    background-color: $White;
+    display: flex;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    border-radius: 5px;
+    padding: .3rem 0;
+    box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
+  }
+
+  & .__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    & .-geografy, & .-culture {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    & .-border-countries {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 5rem;
+
+      h3 {
+        text-align: center;
+        margin-bottom: .5rem;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        
+        li {
+          transition: .5s;
+          background-color: $White;
+          box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
+          padding: .5rem;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          border-radius: 5px;
+
+          .border-flag {
+            width: 20px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+//Dark Mode 
+.App.dark-mode {
+  .country-card {
+    @include DarkModeTheme();
+
+    b {
+      font-weight: 600;
+    }
+  }
+
+  .country-card-selected {
+    button {
+      @include DarkModeTheme();
+    }
+
+    b {
+      font-weight: 600;
+    }
+    color: $White;
+
+    .-border-countries li{
+      @include DarkModeTheme();
+    }
+  }
+}
