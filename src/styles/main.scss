@@ -11,7 +11,13 @@
   font-family: 'Nunito Sans', sans-serif;
 }
 
+.App {
+  min-height: 100vh;
+  background-color: $Very-light-gray;
+}
+
 .main-container {
+  min-height: 70vh;
   transition: .5s;
   padding: $Mobile-padding;
   display: flex;
@@ -21,20 +27,30 @@
 }
 
 footer {
-  position: absolute;
+  width: 100%;
+  background-color: $White;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  padding-left: .5rem;
-  padding-right: .5rem;
+  position: fixed;
+  bottom: 0;
+  padding: $Mobile-padding;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+  }
 }
 
 //Dark Mode
 .App.dark-mode {
+  transition: .5s;
+  background-color: $Dark-background;
+
   .main-container {
     transition: .5s;
     background-color: $Dark-background;
+  }
+  footer {
+    @include DarkModeTheme();
   }
 }
