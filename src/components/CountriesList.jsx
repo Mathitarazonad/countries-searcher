@@ -33,13 +33,13 @@ function CountriesList() {
         : searchedCountry !== '' && regionSelected === 'all'
         ? allCountries
             .filter((country) =>
-              country.name.common.toLowerCase().includes(searchedCountry)
+              country.name.common.toLowerCase().includes(searchedCountry.toLowerCase())
             )
             .map((country) => <CountryCard country={country} key={uuidv4()} />)
         : searchedCountry !== '' && regionSelected !== 'all' 
         ? allCountries
         .filter(country => country.region === regionSelected)
-        .filter(country => country.name.common.toLowerCase().includes(searchedCountry))
+        .filter(country => country.name.common.toLowerCase().includes(searchedCountry.toLowerCase()))
         .map((country) => <CountryCard country={country} key={uuidv4()} />)
         : allCountries
             .filter((country) => country.region === regionSelected)
