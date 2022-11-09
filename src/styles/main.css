@@ -32,13 +32,13 @@
   }
 }
 header {
+  transition: 0.5s;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 1rem;
   box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
   color: hsl(200deg, 15%, 8%);
-  position: relative;
 }
 header h2 {
   font-size: 1rem;
@@ -208,6 +208,130 @@ header .theme-container p {
   font-weight: 300;
 }
 
+.countries-container {
+  margin-bottom: 5rem;
+  padding: 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.countries-container .country-card {
+  transition: 5s;
+  background-color: hsl(0deg, 0%, 100%);
+  box-shadow: 0 3px 12px 4px rgba(0, 0, 0, 0.247);
+  border-radius: 5px;
+  padding-bottom: 2rem;
+}
+.countries-container .country-card img {
+  height: 200px;
+  width: 100%;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.countries-container .country-card .country-info {
+  padding: 1rem 2rem;
+}
+.countries-container .country-card .country-info h2 {
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+.countries-container .country-card .country-info p {
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.country-card-selected {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 1rem;
+  gap: 3rem;
+}
+.country-card-selected button {
+  transition: 0.5s;
+  color: hsl(200deg, 15%, 8%);
+  font-size: 0.95rem;
+  background-color: hsl(0deg, 0%, 100%);
+  display: flex;
+  width: 90px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0;
+  box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
+}
+.country-card-selected .__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.country-card-selected .__info .-geografy, .country-card-selected .__info .-culture {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.country-card-selected .__info .-border-countries {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+}
+.country-card-selected .__info .-border-countries h3 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.country-card-selected .__info .-border-countries ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.country-card-selected .__info .-border-countries ul li {
+  transition: 0.5s;
+  background-color: hsl(0deg, 0%, 100%);
+  box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
+  padding: 0.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 5px;
+}
+.country-card-selected .__info .-border-countries ul li .border-flag {
+  width: 20px;
+}
+
+.App.dark-mode .country-card {
+  transition: 0.5s;
+  background-color: hsl(209deg, 23%, 22%);
+  color: hsl(0deg, 0%, 100%);
+}
+.App.dark-mode .country-card b {
+  font-weight: 600;
+}
+.App.dark-mode .country-card-selected {
+  color: hsl(0deg, 0%, 100%);
+}
+.App.dark-mode .country-card-selected button {
+  transition: 0.5s;
+  background-color: hsl(209deg, 23%, 22%);
+  color: hsl(0deg, 0%, 100%);
+}
+.App.dark-mode .country-card-selected b {
+  font-weight: 600;
+}
+.App.dark-mode .country-card-selected .-border-countries li {
+  transition: 0.5s;
+  background-color: hsl(209deg, 23%, 22%);
+  color: hsl(0deg, 0%, 100%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -215,7 +339,13 @@ header .theme-container p {
   font-family: "Nunito Sans", sans-serif;
 }
 
+.App {
+  min-height: 100vh;
+  background-color: hsl(0deg, 0%, 98%);
+}
+
 .main-container {
+  min-height: 70vh;
   transition: 0.5s;
   padding: 1rem;
   display: flex;
@@ -225,17 +355,29 @@ header .theme-container p {
 }
 
 footer {
-  position: absolute;
+  width: 100%;
+  background-color: hsl(0deg, 0%, 100%);
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+}
+footer a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
 }
 
+.App.dark-mode {
+  transition: 0.5s;
+  background-color: hsl(207deg, 26%, 17%);
+}
 .App.dark-mode .main-container {
   transition: 0.5s;
   background-color: hsl(207deg, 26%, 17%);
+}
+.App.dark-mode footer {
+  transition: 0.5s;
+  background-color: hsl(209deg, 23%, 22%);
+  color: hsl(0deg, 0%, 100%);
 }/*# sourceMappingURL=main.css.map */
