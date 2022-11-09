@@ -1,14 +1,20 @@
 import React from 'react';
 import { BsFillReplyFill } from 'react-icons/bs';
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch } from 'react-redux';
-import { setCountrySelected, setIfCountrySelected, } from '../store/countriesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setCountrySelected,
+  setIfCountrySelected,
+} from '../store/countriesSlice';
 
 function CountrySelected({ country }) {
   const dispatch = useDispatch();
   const nativeNames = country.name.nativeName;
   const currencie = country.currencies;
   const languages = country.languages;
+  const allCountries = useSelector(
+    (store) => store.countries.allCountries
+  ).flat();
 
   const handleClick = (country) => {
     dispatch(setCountrySelected(country));
@@ -66,13 +72,22 @@ function CountrySelected({ country }) {
         </div>
         <div className="-border-countries">
           <h3>
-            <b>Border Countries: </b>
+            <b>Border Countries</b>
           </h3>
           {country.hasOwnProperty('borders') ? (
             <ul>
               {country.borders.map((countryBorder) => (
                 <li key={uuidv4()} onClick={() => handleClick(countryBorder)}>
-                  {countryBorder}
+                  {allCountries.filter((country) => country.cca3 === countryBorder)[0].name.common}
+                  <img
+                    src={
+                      allCountries.filter(
+                        (country) => country.cca3 === countryBorder
+                      )[0].flags.png
+                    }
+                    alt="flag"
+                    className="border-flag"
+                  />
                 </li>
               ))}
             </ul>
