@@ -92,7 +92,7 @@ function CountrySelected({ country }) {
               ))}
             </ul>
           ) : (
-            <p>Has not Border Countries</p>
+            <p className='not-borders-msg'>Has not Border Countries</p>
           )}
         </div>
       </section>
