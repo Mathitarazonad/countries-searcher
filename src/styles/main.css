@@ -287,6 +287,11 @@ header .theme-container p {
     flex-basis: 300px;
   }
 }
+@media screen and (min-width: 950px) {
+  .countries-filters .browser-container {
+    width: 450px;
+  }
+}
 .countries-container {
   margin-bottom: 5rem;
   padding: 0.5rem 2rem;
@@ -472,6 +477,15 @@ header .theme-container p {
     height: 225px;
   }
 }
+@media screen and (min-width: 1600px) {
+  .countries-container {
+    justify-content: space-between;
+  }
+  .countries-container .country-card {
+    width: 340px;
+    height: 470px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -530,5 +544,10 @@ footer a {
   }
   .main-container {
     padding: 1rem 4rem;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .main-container {
+    align-items: flex-start;
   }
 }/*# sourceMappingURL=main.css.map */

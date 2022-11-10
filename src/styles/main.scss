@@ -67,3 +67,9 @@ footer {
     padding: 1rem $Tablet-padding;
   }
 }
+
+@media screen and (min-width: 1400px) {
+  .main-container {
+    align-items: flex-start;
+  }
+}
