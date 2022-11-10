@@ -1,6 +1,7 @@
 @use 'variables' as *;
+
 //Animations and mixins
-@keyframes theme-change {
+@keyframes dark-changeMb {
   from {
     transform: translateX(0);
   }
@@ -9,7 +10,7 @@
   }
 }
 
-@keyframes light-change {
+@keyframes light-changeMb {
   from {
     transform: translateX(145%);
   }
@@ -18,12 +19,37 @@
   }
 }
 
-@mixin BtnThemeChanger ($time) {
-  animation: theme-change $time linear both;
+@keyframes dark-changeTb {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
+
+@keyframes light-changeTb {
+  from {
+    transform: translateX(110%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+
+@mixin BtnDarkChange ($time) {
+  @media screen and (max-width: 849px) {
+    animation: dark-changeMb $time linear both;
+  }
+  animation: dark-changeTb $time linear both;
 }
 
 @mixin BtnLightChange () {
-  animation: light-change .5s linear both;
+  @media screen and (max-width: 849px) { 
+    animation: light-changeMb .5s linear both;
+  }
+  animation: light-changeTb .5s linear both;
 }
 
 @mixin DarkModeTheme () {
