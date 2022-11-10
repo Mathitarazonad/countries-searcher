@@ -132,9 +132,17 @@
 
     .browser-container{
       width: auto;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
     .filter-container {
       flex-basis: 300px;
+
+      .regions-list {
+        @include FilterAnimation(.2s)
+      }
     }
   }
 }

@@ -89,6 +89,10 @@ header {
       .theme-btn {
         width: 60px;
         height: 30px;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
 
         svg {
           width: 25px;

@@ -37,6 +37,21 @@
   }
 }
 
+@keyframes filter-droping {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  70% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
 
 @mixin BtnDarkChange ($time) {
   @media screen and (max-width: 849px) {
@@ -56,4 +71,8 @@
   transition: .5s;
   background-color: $Dark-blue;
   color: $White;
+}
+
+@mixin FilterAnimation ($time) {
+  animation: filter-droping $time linear both;
 }
