@@ -13,6 +13,7 @@
 }
 
 .App {
+  transition: .5s;
   min-height: 100vh;
   background-color: $Very-light-gray;
 }
@@ -28,6 +29,7 @@
 }
 
 footer {
+  transition: .5s;
   width: 100%;
   background-color: $White;
   text-align: center;
@@ -53,5 +55,15 @@ footer {
   }
   footer {
     @include DarkModeTheme();
+  }
+}
+
+@media screen and (min-width: 850px) {
+  * {
+    font-size: 18px;
+  }
+
+  .main-container {
+    padding: 1rem $Tablet-padding;
   }
 }
