@@ -22,7 +22,6 @@ header {
 
     .theme-btn {
       transition: .5s;
-      vertical-align:bottom;
       display: flex;
       align-items: center;
       width: 45px;
@@ -36,7 +35,7 @@ header {
         border-radius: 50%;
         fill: $Very-dark-blue;
         padding: 1px;
-        @include BtnLightChange();
+        @include BtnDarkChange(.5s);
       }
     }
 
@@ -64,11 +63,36 @@ header {
         background-color: $White;
 
         svg {
-          @include BtnThemeChanger(.5s);
+          @include BtnLightChange();
           transition: .5s;
           padding: 2px;
           background-color: $Dark-background;
           fill: $White;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  header {
+    padding: 2rem $Tablet-padding;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .theme-container {
+      p{
+        font-size: 1.45rem;
+      }
+      .theme-btn {
+        width: 60px;
+        height: 30px;
+
+        svg {
+          width: 25px;
+          height: 100%;
         }
       }
     }
