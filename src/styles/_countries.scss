@@ -146,7 +146,82 @@
 }
 
 @media screen and (min-width: 850px) {
-  .country-card {
-    width: 425px;
+  .countries-container {
+    .country-card {
+      width: 425px;
+  
+      img {
+        height: 260px;
+      }
+    }
+  }
+  
+  .country-card-selected {
+
+    .country-selected-flag {
+      width: 450px;
+      height: 275px;
+      display: flex;
+      align-self: center;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: .5rem .8rem;
+      width: 150px;
+      
+      svg {
+        font-size: 1.2rem;
+      }
+    }
+
+    & .__info {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      h2 {
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      & .-geografy, & .-culture {
+        p{
+          font-size: 1.2rem;
+
+          b {
+            font-size: 1.25rem;
+          }
+        }
+      }
+
+      .-border-countries {
+        width: 100%;
+
+        h3 {
+          b {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .countries-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .country-card {
+      width: 330px;
+
+      img {
+        height: 225px;
+      }
+    }
   }
 }
