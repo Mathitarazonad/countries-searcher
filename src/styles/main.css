@@ -454,7 +454,9 @@ header .theme-container p {
     font-size: 1.2rem;
   }
   .country-card-selected .__info .-geografy p b, .country-card-selected .__info .-culture p b {
+    word-break: normal;
     font-size: 1.25rem;
+    font-weight: 600;
   }
   .country-card-selected .__info .-border-countries {
     width: 100%;
@@ -484,6 +486,55 @@ header .theme-container p {
   .countries-container .country-card {
     width: 340px;
     height: 470px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .country-card-selected {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .country-card-selected .back-btn {
+    width: 100%;
+  }
+  .country-card-selected .country-selected-flag {
+    width: 480px;
+    height: 280px;
+    align-self: flex-start;
+  }
+  .country-card-selected .__info {
+    width: 360px;
+    flex-direction: column;
+  }
+  .country-card-selected .__info h2 {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .country-card-selected {
+    justify-content: center;
+  }
+  .country-card-selected .__info {
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .country-card-selected {
+    justify-content: space-between;
+  }
+  .country-card-selected .country-selected-flag {
+    width: 550px;
+    height: 380px;
+  }
+  .country-card-selected .__info {
+    width: 610px;
+  }
+}
+@media screen and (min-width: 1700px) {
+  .country-card-selected {
+    justify-content: center;
+  }
+  .country-card-selected .__info {
+    width: 750px;
   }
 }
 * {

@@ -27,10 +27,12 @@ function CountrySelected({ country }) {
 
   return (
     <div className="country-card-selected">
-      <button onClick={() => handleBack()}>
+      <div className='back-btn'>
+        <button onClick={() => handleBack()}>
         <BsFillReplyFill />
         Back
-      </button>
+        </button>
+      </div>
       <img src={country.flags.png} alt="flag" className='country-selected-flag'/>
       <section className="__info">
         <h2>{country.name.common}</h2>
