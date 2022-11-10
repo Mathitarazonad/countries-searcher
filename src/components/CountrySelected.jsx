@@ -31,7 +31,7 @@ function CountrySelected({ country }) {
         <BsFillReplyFill />
         Back
       </button>
-      <img src={country.flags.png} alt="flag" />
+      <img src={country.flags.png} alt="flag" className='country-selected-flag'/>
       <section className="__info">
         <h2>{country.name.common}</h2>
         <div className="-geografy">
