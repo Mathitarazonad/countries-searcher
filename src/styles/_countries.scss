@@ -81,6 +81,10 @@
       flex-direction: column;
       margin-bottom: 5rem;
 
+      .not-borders-msg {
+        text-align: center;
+      }
+
       h3 {
         text-align: center;
         margin-bottom: .5rem;
@@ -138,5 +142,11 @@
     .-border-countries li{
       @include DarkModeTheme();
     }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .country-card {
+    width: 425px;
   }
 }

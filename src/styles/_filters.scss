@@ -11,6 +11,7 @@
   margin-bottom: 2rem;
 
   .browser-container {
+    transition: .5s;
     display: flex;
     gap: 15px;
     width: 100%;
@@ -21,6 +22,7 @@
     color: $Dark-gray;
 
     input {
+      transition: .5s;
       border: none;
       font-size: .95rem;
       color: $Dark-gray;
@@ -42,8 +44,10 @@
     gap: 5px;
     font-size: .85rem;
     font-weight: 600;
+    position: relative;
 
     .filter-bar {
+      transition: .5s;
       border-radius: 5px;
       box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
       padding: 1rem 1.5rem;
@@ -69,8 +73,9 @@
     }
 
     .regions-list {
-      width: inherit;
-      top: 244px;
+      transition: .5s;
+      width: 100%;
+      top: 70px;
       position: absolute;
       background-color: $White;
       border-radius: 5px;
@@ -120,3 +125,16 @@
   }
 }
 
+@media screen and (min-width: 850px) {
+  .countries-filters {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .browser-container{
+      width: auto;
+    }
+    .filter-container {
+      flex-basis: 300px;
+    }
+  }
+}

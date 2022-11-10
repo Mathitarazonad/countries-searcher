@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
-@-webkit-keyframes theme-change {
+@-webkit-keyframes dark-changeMb {
   from {
     transform: translateX(0);
   }
@@ -7,7 +7,7 @@
     transform: translateX(145%);
   }
 }
-@keyframes theme-change {
+@keyframes dark-changeMb {
   from {
     transform: translateX(0);
   }
@@ -15,7 +15,7 @@
     transform: translateX(145%);
   }
 }
-@-webkit-keyframes light-change {
+@-webkit-keyframes light-changeMb {
   from {
     transform: translateX(145%);
   }
@@ -23,12 +23,44 @@
     transform: translateX(0);
   }
 }
-@keyframes light-change {
+@keyframes light-changeMb {
   from {
     transform: translateX(145%);
   }
   to {
     transform: translateX(0);
+  }
+}
+@-webkit-keyframes dark-changeTb {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
+@keyframes dark-changeTb {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
+@-webkit-keyframes light-changeTb {
+  from {
+    transform: translateX(110%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes light-changeTb {
+  from {
+    transform: translateX(110%);
+  }
+  to {
+    transform: translateX(0%);
   }
 }
 header {
@@ -51,7 +83,6 @@ header .theme-container {
 }
 header .theme-container .theme-btn {
   transition: 0.5s;
-  vertical-align: bottom;
   display: flex;
   align-items: center;
   width: 45px;
@@ -65,8 +96,14 @@ header .theme-container .theme-btn svg {
   border-radius: 50%;
   fill: hsl(200deg, 15%, 8%);
   padding: 1px;
-  -webkit-animation: light-change 0.5s linear both;
-          animation: light-change 0.5s linear both;
+  -webkit-animation: dark-changeTb 0.5s linear both;
+          animation: dark-changeTb 0.5s linear both;
+}
+@media screen and (max-width: 849px) {
+  header .theme-container .theme-btn svg {
+    -webkit-animation: dark-changeMb 0.5s linear both;
+            animation: dark-changeMb 0.5s linear both;
+  }
 }
 header .theme-container p {
   font-size: 0.925rem;
@@ -87,14 +124,39 @@ header .theme-container p {
   background-color: hsl(0deg, 0%, 100%);
 }
 .App.dark-mode header .theme-container .theme-btn svg {
-  -webkit-animation: theme-change 0.5s linear both;
-          animation: theme-change 0.5s linear both;
+  -webkit-animation: light-changeTb 0.5s linear both;
+          animation: light-changeTb 0.5s linear both;
   transition: 0.5s;
   padding: 2px;
   background-color: hsl(207deg, 26%, 17%);
   fill: hsl(0deg, 0%, 100%);
 }
+@media screen and (max-width: 849px) {
+  .App.dark-mode header .theme-container .theme-btn svg {
+    -webkit-animation: light-changeMb 0.5s linear both;
+            animation: light-changeMb 0.5s linear both;
+  }
+}
 
+@media screen and (min-width: 850px) {
+  header {
+    padding: 2rem 4rem;
+  }
+  header h2 {
+    font-size: 1.5rem;
+  }
+  header .theme-container p {
+    font-size: 1.45rem;
+  }
+  header .theme-container .theme-btn {
+    width: 60px;
+    height: 30px;
+  }
+  header .theme-container .theme-btn svg {
+    width: 25px;
+    height: 100%;
+  }
+}
 .countries-filters {
   margin-top: 1rem;
   width: 100%;
@@ -105,6 +167,7 @@ header .theme-container p {
   margin-bottom: 2rem;
 }
 .countries-filters .browser-container {
+  transition: 0.5s;
   display: flex;
   gap: 15px;
   width: 100%;
@@ -115,6 +178,7 @@ header .theme-container p {
   color: hsl(0deg, 0%, 52%);
 }
 .countries-filters .browser-container input {
+  transition: 0.5s;
   border: none;
   font-size: 0.95rem;
   color: hsl(0deg, 0%, 52%);
@@ -132,8 +196,10 @@ header .theme-container p {
   gap: 5px;
   font-size: 0.85rem;
   font-weight: 600;
+  position: relative;
 }
 .countries-filters .filter-container .filter-bar {
+  transition: 0.5s;
   border-radius: 5px;
   box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
   padding: 1rem 1.5rem;
@@ -156,8 +222,9 @@ header .theme-container p {
   font-size: 1rem;
 }
 .countries-filters .filter-container .regions-list {
-  width: inherit;
-  top: 244px;
+  transition: 0.5s;
+  width: 100%;
+  top: 70px;
   position: absolute;
   background-color: hsl(0deg, 0%, 100%);
   border-radius: 5px;
@@ -208,6 +275,18 @@ header .theme-container p {
   font-weight: 300;
 }
 
+@media screen and (min-width: 850px) {
+  .countries-filters {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .countries-filters .browser-container {
+    width: auto;
+  }
+  .countries-filters .filter-container {
+    flex-basis: 300px;
+  }
+}
 .countries-container {
   margin-bottom: 5rem;
   padding: 0.5rem 2rem;
@@ -280,6 +359,9 @@ header .theme-container p {
   flex-direction: column;
   margin-bottom: 5rem;
 }
+.country-card-selected .__info .-border-countries .not-borders-msg {
+  text-align: center;
+}
 .country-card-selected .__info .-border-countries h3 {
   text-align: center;
   margin-bottom: 0.5rem;
@@ -332,6 +414,11 @@ header .theme-container p {
   color: hsl(0deg, 0%, 100%);
 }
 
+@media screen and (min-width: 850px) {
+  .country-card {
+    width: 425px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -340,6 +427,7 @@ header .theme-container p {
 }
 
 .App {
+  transition: 0.5s;
   min-height: 100vh;
   background-color: hsl(0deg, 0%, 98%);
 }
@@ -355,6 +443,7 @@ header .theme-container p {
 }
 
 footer {
+  transition: 0.5s;
   width: 100%;
   background-color: hsl(0deg, 0%, 100%);
   text-align: center;
@@ -380,4 +469,13 @@ footer a {
   transition: 0.5s;
   background-color: hsl(209deg, 23%, 22%);
   color: hsl(0deg, 0%, 100%);
+}
+
+@media screen and (min-width: 850px) {
+  * {
+    font-size: 18px;
+  }
+  .main-container {
+    padding: 1rem 4rem;
+  }
 }/*# sourceMappingURL=main.css.map */
