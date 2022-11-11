@@ -21,7 +21,6 @@ export const fetchCountries = createAsyncThunk(
 );
 
 const initialState = {
-  countriesToRender: ['ger', 'usa', 'bra', 'chi', 'rus', 'par', 'arg', 'esp'],
   fetchedCountries: [],
   allCountries: [],
   isCountrySelected: false,
@@ -29,15 +28,14 @@ const initialState = {
   regionSelected: 'all',
   isFilterOpen: false,
   searchedCountry: '',
+  availablePages : 0,
+  currentPage: 0
 };
 
 const countriesSlice = createSlice({
   name: 'countriesSelection',
   initialState,
   reducers: {
-    setCountriesToRender: (state, action) => {
-      state.countriesToRender = action.payload;
-    },
     setIfCountrySelected: (state) => {
       state.isCountrySelected = !state.isCountrySelected;
     },
@@ -52,6 +50,24 @@ const countriesSlice = createSlice({
     },
     setIfFilterOpen: (state) => {
       state.isFilterOpen = !state.isFilterOpen;
+    },
+    setCurrentPage: (state, action) => {
+      if (action.payload === 'next') {
+        if (state.currentPage !== state.availablePages) {
+          state.currentPage += 1;
+        } else {
+          state.currentPage = 0;
+        }
+      } else if (action.payload === 'previous') {
+        if (state.currentPage !== 0) {
+          state.currentPage -= 1;
+        } else {
+          state.currentPage = state.availablePages;
+        }
+      }
+    },
+    setAvailablePages: (state, action) => {
+      state.availablePages = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -70,10 +86,11 @@ const countriesSlice = createSlice({
 
 export default countriesSlice.reducer;
 export const {
-  setCountriesToRender,
   setIfCountrySelected,
   setCountrySelected,
   setRegionSelected,
   setSearchedCountry,
   setIfFilterOpen,
+  setCurrentPage,
+  setAvailablePages,
 } = countriesSlice.actions;
