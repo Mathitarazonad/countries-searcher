@@ -10,11 +10,15 @@
 
 
   .country-card {
-    transition: 5s;
+    transition: .5s;
     background-color: $White;
     box-shadow: 0 3px 12px 4px rgba(0, 0, 0, 0.247);
     border-radius: 5px;
     padding-bottom: 2rem;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     img {
       height: 200px;
@@ -63,6 +67,10 @@
     border-radius: 5px;
     padding: .3rem 0;
     box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
+
+    &:hover {
+      background-color: $Light-hover;
+    }
   }
 
   & .__info {
@@ -109,6 +117,10 @@
           gap: 10px;
           border-radius: 5px;
 
+          &:hover {
+            background-color: $Light-hover;
+          }
+
           .border-flag {
             width: 20px;
           }
@@ -132,6 +144,9 @@
   .country-card-selected {
     button {
       @include DarkModeTheme();
+      &:hover {
+        background-color: $Dark-hover;
+      }
     }
 
     b {
@@ -141,6 +156,10 @@
 
     .-border-countries li{
       @include DarkModeTheme();
+
+      &:hover {
+        background-color: $Dark-hover;
+      }
     }
   }
 }

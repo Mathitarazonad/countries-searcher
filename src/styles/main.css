@@ -208,7 +208,12 @@ header .theme-container p {
   box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
   color: hsl(0deg, 0%, 52%);
 }
+.countries-filters .browser-container:hover, .countries-filters .browser-container:hover input {
+  background-color: hsl(225deg, 9%, 83%);
+}
 .countries-filters .browser-container input {
+  width: 100%;
+  cursor: pointer;
   transition: 0.5s;
   border: none;
   font-size: 0.95rem;
@@ -239,6 +244,9 @@ header .theme-container p {
   align-items: center;
   justify-content: space-between;
   position: relative;
+}
+.countries-filters .filter-container .filter-bar:hover {
+  background-color: hsl(225deg, 9%, 83%);
 }
 .countries-filters .filter-container .filter-bar .filter-icons {
   display: flex;
@@ -274,6 +282,9 @@ header .theme-container p {
   background-color: hsl(209deg, 23%, 22%);
   color: hsl(0deg, 0%, 100%);
 }
+.App.dark-mode .browser-container:hover, .App.dark-mode .browser-container:hover input {
+  background-color: hsl(209deg, 16%, 29%);
+}
 .App.dark-mode .browser-container input {
   transition: 0.5s;
   background-color: hsl(209deg, 23%, 22%);
@@ -294,6 +305,9 @@ header .theme-container p {
   color: hsl(0deg, 0%, 100%);
   font-weight: 300;
 }
+.App.dark-mode .filter-container .filter-bar:hover {
+  background-color: hsl(209deg, 16%, 29%);
+}
 .App.dark-mode .filter-container .filter-bar #close-icon {
   transition: 0.5s;
   background-color: hsl(0deg, 0%, 100%);
@@ -313,9 +327,6 @@ header .theme-container p {
   }
   .countries-filters .browser-container {
     width: auto;
-  }
-  .countries-filters .browser-container:hover {
-    transform: scale(1.05);
   }
   .countries-filters .filter-container {
     flex-basis: 300px;
@@ -338,11 +349,14 @@ header .theme-container p {
   gap: 4rem;
 }
 .countries-container .country-card {
-  transition: 5s;
+  transition: 0.5s;
   background-color: hsl(0deg, 0%, 100%);
   box-shadow: 0 3px 12px 4px rgba(0, 0, 0, 0.247);
   border-radius: 5px;
   padding-bottom: 2rem;
+}
+.countries-container .country-card:hover {
+  transform: scale(1.05);
 }
 .countries-container .country-card img {
   height: 200px;
@@ -387,6 +401,9 @@ header .theme-container p {
   padding: 0.3rem 0;
   box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.106);
 }
+.country-card-selected button:hover {
+  background-color: hsl(225deg, 9%, 83%);
+}
 .country-card-selected .__info {
   display: flex;
   flex-direction: column;
@@ -428,6 +445,9 @@ header .theme-container p {
   gap: 10px;
   border-radius: 5px;
 }
+.country-card-selected .__info .-border-countries ul li:hover {
+  background-color: hsl(225deg, 9%, 83%);
+}
 .country-card-selected .__info .-border-countries ul li .border-flag {
   width: 20px;
 }
@@ -448,6 +468,9 @@ header .theme-container p {
   background-color: hsl(209deg, 23%, 22%);
   color: hsl(0deg, 0%, 100%);
 }
+.App.dark-mode .country-card-selected button:hover {
+  background-color: hsl(209deg, 16%, 29%);
+}
 .App.dark-mode .country-card-selected b {
   font-weight: 600;
 }
@@ -455,6 +478,9 @@ header .theme-container p {
   transition: 0.5s;
   background-color: hsl(209deg, 23%, 22%);
   color: hsl(0deg, 0%, 100%);
+}
+.App.dark-mode .country-card-selected .-border-countries li:hover {
+  background-color: hsl(209deg, 16%, 29%);
 }
 
 @media screen and (min-width: 850px) {
