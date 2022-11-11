@@ -639,4 +639,11 @@ footer a {
   .main-container {
     align-items: flex-start;
   }
+}
+.theme-btn, .browser-container, .filter-container, .country-card, .back-btn button, .-border-countries ul li {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }/*# sourceMappingURL=main.css.map */

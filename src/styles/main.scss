@@ -73,3 +73,9 @@ footer {
     align-items: flex-start;
   }
 }
+
+//Cursor pointer to all clickable elements on the page
+.theme-btn, .browser-container, .filter-container, .country-card, .back-btn button, .-border-countries ul li  {
+  cursor: pointer;
+  user-select: none;
+}
