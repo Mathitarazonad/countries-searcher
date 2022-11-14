@@ -7,6 +7,7 @@ import {
   setIfFilterOpen,
   setAvailablePages,
   setCurrentPage,
+  setPageAnimation,
 } from '../store/countriesSlice';
 
 function Filter() {
@@ -16,6 +17,7 @@ function Filter() {
 
   const handleFilterState = () => {
     dispatch(setIfFilterOpen());
+    dispatch(setPageAnimation(''));
   };
 
   const handleOption = (option) => {
