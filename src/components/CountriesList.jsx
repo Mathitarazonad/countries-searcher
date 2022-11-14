@@ -57,7 +57,7 @@ function CountriesList() {
     } else if (searchedCountry !== '' && regionSelected !== '') {
       dispatch(setAvailablePages(chunk(filterByBoth(), 8).length-1));
     }
-  })
+  }, [regionSelected][searchedCountry])
 
   return (
     <div className="countries-container">

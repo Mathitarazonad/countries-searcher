@@ -64,6 +64,8 @@ const countriesSlice = createSlice({
         } else {
           state.currentPage = state.availablePages;
         }
+      } else {
+        state.currentPage = action.payload;
       }
     },
     setAvailablePages: (state, action) => {
