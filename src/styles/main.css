@@ -348,6 +348,14 @@ header .theme-container p {
   flex-direction: column;
   gap: 4rem;
 }
+.countries-container .country-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.countries-container .changer-btns {
+  display: none;
+}
 .countries-container .country-card {
   transition: 0.5s;
   background-color: hsl(0deg, 0%, 100%);

@@ -8,6 +8,15 @@
   flex-direction: column;
   gap: 4rem;
 
+  .country-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .changer-btns {
+    display: none;
+  }
 
   .country-card {
     transition: .5s;
