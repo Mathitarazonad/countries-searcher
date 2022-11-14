@@ -13,8 +13,6 @@ function Filter() {
   const dispatch = useDispatch();
   const regionSelected = useSelector((store) => store.countries.regionSelected);
   const isFilterOpen = useSelector((store) => store.countries.isFilterOpen);
-  const currentPage = useSelector((store) => store.countries.currentPage);
-  const availablePages = useSelector((store) => store.countries.availablePages);
 
   const handleFilterState = () => {
     dispatch(setIfFilterOpen());
