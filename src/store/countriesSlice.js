@@ -29,7 +29,8 @@ const initialState = {
   isFilterOpen: false,
   searchedCountry: '',
   availablePages : 0,
-  currentPage: 0
+  currentPage: 0,
+  pageAnimation: '',
 };
 
 const countriesSlice = createSlice({
@@ -70,6 +71,9 @@ const countriesSlice = createSlice({
     },
     setAvailablePages: (state, action) => {
       state.availablePages = action.payload;
+    },
+    setPageAnimation: (state, action) => {
+      state.pageAnimation = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -95,4 +99,5 @@ export const {
   setIfFilterOpen,
   setCurrentPage,
   setAvailablePages,
+  setPageAnimation,
 } = countriesSlice.actions;
