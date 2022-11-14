@@ -357,6 +357,7 @@ header .theme-container p {
   display: none;
 }
 .countries-container .country-card {
+  max-width: 400px;
   transition: 0.5s;
   background-color: hsl(0deg, 0%, 100%);
   box-shadow: 0 3px 12px 4px rgba(0, 0, 0, 0.247);
@@ -460,6 +461,10 @@ header .theme-container p {
   width: 20px;
 }
 
+.App.dark-mode .changer-btns .previous-icon, .App.dark-mode .changer-btns .next-icon {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(209deg, 23%, 22%);
+}
 .App.dark-mode .country-card {
   transition: 0.5s;
   background-color: hsl(209deg, 23%, 22%);
@@ -492,11 +497,53 @@ header .theme-container p {
 }
 
 @media screen and (min-width: 850px) {
-  .countries-container .country-card {
-    width: 425px;
+  .countries-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
   .countries-container .country-card img {
-    height: 260px;
+    height: 180px;
+  }
+  .countries-container .country-list {
+    display: none;
+  }
+  .countries-container .country-list.current {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .countries-container .changer-btns {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+  }
+  .countries-container .changer-btns .previous-icon, .countries-container .changer-btns .next-icon {
+    transition: 0.5s;
+    position: absolute;
+    background-color: hsl(200deg, 15%, 8%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0.5rem;
+    color: hsl(0deg, 0%, 100%);
+    cursor: pointer;
+  }
+  .countries-container .changer-btns .previous-icon:hover, .countries-container .changer-btns .next-icon:hover {
+    background-color: hsl(225deg, 9%, 83%);
+    transform: scale(1.1);
+  }
+  .countries-container .changer-btns .previous-icon {
+    left: 2.25%;
+  }
+  .countries-container .changer-btns .next-icon {
+    right: 2.25%;
+  }
+  .countries-container .country-card {
+    width: 280px;
   }
   .country-card-selected .country-selected-flag {
     width: 450px;
@@ -544,20 +591,14 @@ header .theme-container p {
     align-items: center;
     justify-content: space-evenly;
   }
+  .countries-container .country-list.current {
+    justify-content: space-evenly;
+  }
   .countries-container .country-card {
     width: 330px;
   }
   .countries-container .country-card img {
-    height: 225px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .countries-container {
-    justify-content: space-between;
-  }
-  .countries-container .country-card {
-    width: 340px;
-    height: 470px;
+    height: 200px;
   }
 }
 @media screen and (min-width: 1100px) {
@@ -582,6 +623,9 @@ header .theme-container p {
   }
 }
 @media screen and (min-width: 1300px) {
+  .countries-container .country-card {
+    width: 300px;
+  }
   .country-card-selected {
     justify-content: center;
   }
@@ -590,6 +634,12 @@ header .theme-container p {
   }
 }
 @media screen and (min-width: 1400px) {
+  .countries-container .changer-btns .previous-icon {
+    left: 4%;
+  }
+  .countries-container .changer-btns .next-icon {
+    right: 4%;
+  }
   .country-card-selected {
     justify-content: space-between;
   }
@@ -601,12 +651,43 @@ header .theme-container p {
     width: 610px;
   }
 }
+@media screen and (min-width: 1600px) {
+  .countries-container .country-card {
+    width: 280px;
+    height: 400px;
+  }
+  .countries-container .country-card img {
+    height: 190px;
+  }
+  .countries-container .changer-btns .previous-icon {
+    left: 2.5%;
+  }
+  .countries-container .changer-btns .next-icon {
+    right: 2.5%;
+  }
+}
 @media screen and (min-width: 1700px) {
+  .countries-container .country-card {
+    width: 300px;
+    height: 400px;
+  }
+  .countries-container .country-card img {
+    height: 190px;
+  }
   .country-card-selected {
     justify-content: center;
   }
   .country-card-selected .__info {
     width: 750px;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .countries-container .country-card {
+    width: 340px;
+    height: 420px;
+  }
+  .countries-container .country-card img {
+    height: 210px;
   }
 }
 * {
@@ -667,11 +748,6 @@ footer a {
   }
   .main-container {
     padding: 1rem 4rem;
-  }
-}
-@media screen and (min-width: 1400px) {
-  .main-container {
-    align-items: flex-start;
   }
 }
 .theme-btn, .browser-container, .filter-container, .country-card, .back-btn button, .-border-countries ul li {
