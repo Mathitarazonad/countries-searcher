@@ -9,6 +9,7 @@
   align-items: flex-start;
   gap: 2rem;
   margin-bottom: 2rem;
+  z-index: 9999;
 
   .browser-container {
     transition: .5s;
@@ -62,6 +63,10 @@
       align-items: center;
       justify-content: space-between;
       position: relative;
+
+      p {
+        width: 100%;
+      }
 
       &:hover {
         background-color: $Light-hover;

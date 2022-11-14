@@ -202,6 +202,14 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+
+        &.next {
+          @include NextCountriesAnimation(.7s);
+        }
+
+        &.previous {
+          @include PreviousCountriesAnimation(.7s)
+        }
       }
     }
 
@@ -391,7 +399,7 @@
 
     .country-card {
       width: 280px;
-      height: 400px;
+      height: 440px;
 
       img {
         height: 190px;
@@ -413,7 +421,6 @@
  .countries-container {
   .country-card {
     width: 300px;
-    height: 400px;
 
     img {
       height: 190px;
@@ -434,7 +441,6 @@
   .countries-container {
     .country-card {
       width: 340px;
-      height: 420px;
 
       img {
         height: 210px;

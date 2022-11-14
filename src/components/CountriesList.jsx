@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCountries, setAvailablePages, setCurrentPage } from '../store/countriesSlice';
+import { fetchCountries, setAvailablePages, setCurrentPage, setPageAnimation } from '../store/countriesSlice';
 import CountryCard from './CountryCard';
 import { v4 as uuidv4 } from 'uuid';
 import { chunk } from 'lodash';
@@ -16,6 +16,7 @@ function CountriesList() {
   const searchedCountry = useSelector(store => store.countries.searchedCountry);
   const currentPage = useSelector(store => store.countries.currentPage);
   const availablePages = useSelector(store => store.countries.availablePages);
+  const pageAnimation = useSelector(store => store.countries.pageAnimation);
 
   //Functions to filter
   function filterBySearch() {
@@ -34,7 +35,7 @@ function CountriesList() {
 
   function renderElements(countryList) {
     return countryList.map((countryList,index) => 
-      <div className={index === currentPage ? 'country-list current' : 'country-list'} key={index}>
+      <div className={index === currentPage ? `country-list current${' '+pageAnimation}`: 'country-list'} key={index}>
         {countryList.map(country => <CountryCard country={country} key={uuidv4()}/>)}
       </div>
     )  
@@ -42,6 +43,11 @@ function CountriesList() {
 
   function handleChange(option) {
     dispatch(setCurrentPage(option)); 
+    if (currentPage <= availablePages && option === 'next') {
+      dispatch(setPageAnimation('next'))
+    } else if (currentPage => 0 && option ==='previous') {
+      dispatch(setPageAnimation('previous'));
+    }
   }
 
   //UseEffect hooks

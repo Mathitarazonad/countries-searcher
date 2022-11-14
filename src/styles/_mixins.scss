@@ -52,6 +52,28 @@
   }
 }
 
+@keyframes next-list {
+  0%{
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes back-list {
+  0%{
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
 
 @mixin BtnDarkChange ($time) {
   @media screen and (max-width: 849px) {
@@ -75,4 +97,12 @@
 
 @mixin FilterAnimation ($time) {
   animation: filter-droping $time linear both;
+}
+
+@mixin NextCountriesAnimation ($time) {
+  animation: next-list $time linear both;
+}
+
+@mixin PreviousCountriesAnimation ($time) {
+  animation: back-list $time linear both;
 }

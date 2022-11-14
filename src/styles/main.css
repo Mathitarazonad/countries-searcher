@@ -91,6 +91,46 @@
     transform: translateY(0%);
   }
 }
+@-webkit-keyframes next-list {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes next-list {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes back-list {
+  0% {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes back-list {
+  0% {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
 header {
   transition: 0.5s;
   display: flex;
@@ -196,6 +236,7 @@ header .theme-container p {
   align-items: flex-start;
   gap: 2rem;
   margin-bottom: 2rem;
+  z-index: 9999;
 }
 .countries-filters .browser-container {
   transition: 0.5s;
@@ -244,6 +285,9 @@ header .theme-container p {
   align-items: center;
   justify-content: space-between;
   position: relative;
+}
+.countries-filters .filter-container .filter-bar p {
+  width: 100%;
 }
 .countries-filters .filter-container .filter-bar:hover {
   background-color: hsl(225deg, 9%, 83%);
@@ -514,6 +558,14 @@ header .theme-container p {
     flex-wrap: wrap;
     justify-content: center;
   }
+  .countries-container .country-list.current.next {
+    -webkit-animation: next-list 0.7s linear both;
+            animation: next-list 0.7s linear both;
+  }
+  .countries-container .country-list.current.previous {
+    -webkit-animation: back-list 0.7s linear both;
+            animation: back-list 0.7s linear both;
+  }
   .countries-container .changer-btns {
     display: flex;
     position: fixed;
@@ -654,7 +706,7 @@ header .theme-container p {
 @media screen and (min-width: 1600px) {
   .countries-container .country-card {
     width: 280px;
-    height: 400px;
+    height: 440px;
   }
   .countries-container .country-card img {
     height: 190px;
@@ -669,7 +721,6 @@ header .theme-container p {
 @media screen and (min-width: 1700px) {
   .countries-container .country-card {
     width: 300px;
-    height: 400px;
   }
   .countries-container .country-card img {
     height: 190px;
@@ -684,7 +735,6 @@ header .theme-container p {
 @media screen and (min-width: 1900px) {
   .countries-container .country-card {
     width: 340px;
-    height: 420px;
   }
   .countries-container .country-card img {
     height: 210px;
