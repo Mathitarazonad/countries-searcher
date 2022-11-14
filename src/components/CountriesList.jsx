@@ -50,12 +50,12 @@ function CountriesList() {
   }, [dispatch]);
 
   useEffect(() => {
-    if(regionSelected !== '') {
-      dispatch(setAvailablePages(chunk(filterByRegion(), 8).length));
-    } else if (searchedCountry !== '') {
-      dispatch(setAvailablePages(chunk(filterBySearch(), 8).length));
+    if(regionSelected !== '' && searchedCountry === '') {
+      dispatch(setAvailablePages(chunk(filterByRegion(), 8).length-1));
+    } else if (searchedCountry !== '' && regionSelected === 'all') {
+      dispatch(setAvailablePages(chunk(filterBySearch(), 8).length-1));
     } else if (searchedCountry !== '' && regionSelected !== '') {
-      dispatch(setAvailablePages(chunk(filterByBoth, 8).length));
+      dispatch(setAvailablePages(chunk(filterByBoth(), 8).length-1));
     }
   })
 
