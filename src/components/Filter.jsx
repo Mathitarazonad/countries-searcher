@@ -2,7 +2,7 @@ import React from 'react';
 import { IoIosClose } from 'react-icons/io';
 import { BiChevronDown } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux';
-import { setRegionSelected, setIfFilterOpen } from '../store/countriesSlice';
+import { setRegionSelected, setIfFilterOpen, setAvailablePages, setCurrentPage } from '../store/countriesSlice';
 
 function Filter() {
   const dispatch = useDispatch();
@@ -20,6 +20,8 @@ function Filter() {
 
   const handleReset = () => {
     dispatch(setRegionSelected('all'));
+    dispatch(setAvailablePages(0));
+    dispatch(setCurrentPage(0));
     if(isFilterOpen) {
       dispatch(setIfFilterOpen());
     } 
