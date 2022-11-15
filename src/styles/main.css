@@ -565,7 +565,7 @@ header .theme-container p {
 .App.dark-mode .mini-btns .page-btns.current {
   border-color: hsl(200deg, 15%, 8%);
 }
-.App.dark-mode .mini-btns .previous-icon, .App.dark-mode .mini-btns .next-icon {
+.App.dark-mode .mini-btns #previous-icon, .App.dark-mode .mini-btns #next-icon {
   background-color: hsl(0deg, 0%, 100%);
   color: hsl(209deg, 23%, 22%);
 }
