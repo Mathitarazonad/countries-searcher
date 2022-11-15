@@ -3,23 +3,70 @@
 
 .countries-container {
   margin-bottom: 5rem;
-  padding: .5rem 2rem;
+  padding: .5rem 0;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  align-items: center;
+  gap: 2rem;
 
   .country-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+    display: none;
+    gap: 2rem;
+
+    &.current {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
-  .changer-btns {
-    display: none;
+  .mini-btns {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+
+    .page-btns {
+      transition: .5s;
+      color: $Dark-gray;
+      font-weight: 600;
+      padding: .15rem .5rem;
+      border: 2px solid rgb(212, 205, 205);
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &.current {
+        border-color: black;
+      }
+    }
+
+    #previous-icon, #next-icon {
+      transition: .5s;
+      background-color: $Very-dark-blue;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      padding: .5rem;
+      color: $White;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $Light-hover;
+        transform: scale(1.1);
+      }
+    }
   }
 
   .country-card {
-    max-width: 400px;
+    width: 290px;
     transition: .5s;
     background-color: $White;
     box-shadow: 0 3px 12px 4px rgba(0, 0, 0, 0.247);
@@ -31,7 +78,7 @@
     }
 
     img {
-      height: 200px;
+      height: 180px;
       width: 100%;
       border-top-right-radius: 5px;
       border-top-left-radius: 5px;
@@ -143,19 +190,25 @@
 
 //Dark Mode 
 .App.dark-mode {
-
-  .changer-btns {
-    .previous-icon, .next-icon {
-      background-color: $White;
-      color: $Dark-blue;
-    }
-  }
-
   .country-card {
     @include DarkModeTheme();
 
     b {
       font-weight: 600;
+    }
+  }
+
+  .mini-btns {
+    .page-btns {
+      @include DarkModeTheme();
+
+      &.current {
+        border-color: $Very-dark-blue;
+      }
+    }
+    .previous-icon, .next-icon {
+      background-color: $White;
+      color: $Dark-blue;
     }
   }
 
@@ -187,21 +240,26 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 4rem;
 
     .country-card {
+      width: 280px;
+      height: 415px;
       img {
         height: 180px;
       }
     }
 
+    .mini-btns {
+      margin-bottom: -2rem;
+    }
+
     .country-list {
-      display: none;
 
       &.current {
-        display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
+        gap: 4rem;
 
         &.next {
           @include NextCountriesAnimation(.7s);
@@ -213,41 +271,39 @@
       }
     }
 
-    .changer-btns {
+    .mini-btns {
       display: flex;
-      position: fixed;
-      top: 50%;
-      left: 0;
-      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
 
-      .previous-icon, .next-icon {
+      .page-btns {
         transition: .5s;
-        position: absolute;
-        background-color: $Very-dark-blue;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        padding: .5rem;
-        color: $White;
+        color: $Dark-gray;
+        font-weight: 600;
+        padding: .15rem .5rem;
+        border: 2px solid rgb(212, 205, 205);
+        border-radius: 5px;
         cursor: pointer;
 
         &:hover {
-          background-color: $Light-hover;
-          transform: scale(1.1);
+          transform: scale(1.05);
         }
       }
 
-      .previous-icon {
+      #previous-icon, #next-icon {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        top: 50%;
+      }
+
+      #previous-icon {
         left: 2.25%;
       }
-
-      .next-icon {
+      #next-icon {
         right: 2.25%;
       }
-    }
-
-    .country-card {
-      width: 280px;
     }
   }
   
@@ -308,15 +364,6 @@
 
 @media screen and (min-width: 950px) {
   .countries-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-
-    .country-list.current {
-      justify-content: space-evenly;
-    }
-
     .country-card {
       width: 330px;
 
@@ -370,11 +417,11 @@
 @media screen and (min-width: 1400px) {
 
   .countries-container {
-    .changer-btns {
-      .previous-icon {
+    .mini-btns {
+      #previous-icon {
         left: 4%;
       }
-      .next-icon {
+      #next-icon {
         right: 4%;
       }
     }
@@ -390,6 +437,19 @@
 
     & .__info {
       width: 610px;
+    }
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .countries-container{
+    .mini-btns {
+      #previous-icon {
+        left: 1.5%;
+      }
+      #next-icon {
+        right: 1.5%;
+      }
     }
   }
 }
