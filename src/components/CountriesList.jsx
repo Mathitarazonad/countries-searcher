@@ -33,22 +33,48 @@ function CountriesList() {
     .filter(country => country.region === regionSelected);
   }
 
-  function renderElements(countryList) {
-    return countryList.map((countryList,index) => 
-      <div className={index === currentPage ? `country-list current${' '+pageAnimation}`: 'country-list'} key={index}>
-        {countryList.map(country => <CountryCard country={country} key={uuidv4()}/>)}
-      </div>
+  function renderElements(filteredCountriesList) {
+    return(
+      <>
+        {createPageBtns(filteredCountriesList)}
+        {filteredCountriesList.map((countryList,index) => 
+          <div className={index === currentPage ? `country-list current${' '+pageAnimation}`: 'country-list'} key={index}>
+            {countryList.map(country => <CountryCard country={country} key={uuidv4()}/>)}
+          </div>
+        )}
+     </>  
     )  
+  }
+
+  function createPageBtns(filteredCountriesList) {
+    if (availablePages > 0) {
+      return (
+          <div className='mini-btns'>
+            <AiOutlineArrowLeft onClick={() => handleChange('previous')} className='changer-btns' id='previous-icon'/>
+            {filteredCountriesList.map((page, index) => <button className={index === currentPage ? 'page-btns current' : 'page-btns'} key={uuidv4()} onClick={() => handlePage(index)}>{index+1}</button>)}
+            <AiOutlineArrowRight onClick={() => handleChange('next')} className='changer-btns' id='next-icon'/>
+          </div>
+      ) 
+    }
   }
 
   function handleChange(option) {
     dispatch(setCurrentPage(option)); 
     if (currentPage <= availablePages && option === 'next') {
-      dispatch(setPageAnimation('next'))
+      dispatch(setPageAnimation('next'));
     } else if (currentPage => 0 && option ==='previous') {
       dispatch(setPageAnimation('previous'));
     }
   }
+
+  function handlePage(option) {
+    dispatch(setCurrentPage(option));
+    if (currentPage <= availablePages && currentPage < option) {
+      dispatch(setPageAnimation('next'));
+    } else if (currentPage => 0 && currentPage > option) {
+      dispatch(setPageAnimation('previous'));
+    }
+  } 
 
   //UseEffect hooks
   useEffect(() => {
@@ -63,7 +89,7 @@ function CountriesList() {
     } else if (searchedCountry !== '' && regionSelected !== '') {
       dispatch(setAvailablePages(chunk(filterByBoth(), 8).length-1));
     }
-  }, [regionSelected][searchedCountry])
+  })
 
   return (
     <div className="countries-container">
@@ -81,12 +107,6 @@ function CountriesList() {
 
         //Filter only by Region
         : renderElements(chunk(filterByRegion(), 8))}
-
-        {/* Buttons to change page */}
-        {availablePages > 0 && <div className='changer-btns'>
-          <AiOutlineArrowLeft onClick={() => handleChange('previous')} className='previous-icon'/>
-          <AiOutlineArrowRight onClick={() => handleChange('next')} className='next-icon'/>
-        </div>}
     </div>
   );
 }
