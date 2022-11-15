@@ -1,7 +1,7 @@
 {
   "name": "countries-searcher",
   "version": "0.1.0",
-  "hoempage":"https://mathitarazonad.github.io/countries-searcher",
+  "homepage":"https://mathitarazonad.github.io/countries-searcher",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
