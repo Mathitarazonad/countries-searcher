@@ -27,6 +27,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 5px;
 
     .page-btns {
@@ -235,12 +236,11 @@
   }
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 700px) {
   .countries-container {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 4rem;
 
     .country-card {
       width: 280px;
@@ -250,16 +250,12 @@
       }
     }
 
-    .mini-btns {
-      margin-bottom: -2rem;
-    }
-
     .country-list {
 
       &.current {
         flex-direction: row;
         justify-content: space-evenly;
-        gap: 4rem;
+        gap: 2rem;
 
         &.next {
           @include NextCountriesAnimation(.7s);
@@ -276,34 +272,6 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 5px;
-
-      .page-btns {
-        transition: .5s;
-        color: $Dark-gray;
-        font-weight: 600;
-        padding: .15rem .5rem;
-        border: 2px solid rgb(212, 205, 205);
-        border-radius: 5px;
-        cursor: pointer;
-
-        &:hover {
-          transform: scale(1.05);
-        }
-      }
-
-      #previous-icon, #next-icon {
-        position: fixed;
-        width: 50px;
-        height: 50px;
-        top: 50%;
-      }
-
-      #previous-icon {
-        left: 2.25%;
-      }
-      #next-icon {
-        right: 2.25%;
-      }
     }
   }
   
@@ -362,8 +330,43 @@
   }
 }
 
+@media screen and (min-width: 850px) {
+  .countries-container {
+    .mini-btns {
+      .page-btns {
+        transition: .5s;
+        color: $Dark-gray;
+        font-weight: 600;
+        padding: .15rem .5rem;
+        border: 2px solid rgb(212, 205, 205);
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      #previous-icon, #next-icon {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        top: 50%;
+      }
+
+      #previous-icon {
+        left: 2.25%;
+      }
+      #next-icon {
+        right: 2.25%;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 950px) {
   .countries-container {
+    gap: 4rem;
     .country-card {
       width: 330px;
 
@@ -371,6 +374,16 @@
         height: 200px;
       }
     }
+
+    .country-list {
+      &.current {
+        gap: 4rem;
+      }
+    }
+
+    .mini-btns {
+      margin-bottom: -2rem;
+    }  
   }
 }
 

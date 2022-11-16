@@ -409,6 +409,7 @@ header .theme-container p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 5px;
 }
 .countries-container .mini-btns .page-btns {
@@ -592,12 +593,11 @@ header .theme-container p {
   background-color: hsl(209deg, 16%, 29%);
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 700px) {
   .countries-container {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 4rem;
   }
   .countries-container .country-card {
     width: 280px;
@@ -606,13 +606,10 @@ header .theme-container p {
   .countries-container .country-card img {
     height: 180px;
   }
-  .countries-container .mini-btns {
-    margin-bottom: -2rem;
-  }
   .countries-container .country-list.current {
     flex-direction: row;
     justify-content: space-evenly;
-    gap: 4rem;
+    gap: 2rem;
   }
   .countries-container .country-list.current.next {
     -webkit-animation: next-list 0.7s linear both;
@@ -627,30 +624,6 @@ header .theme-container p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
-  }
-  .countries-container .mini-btns .page-btns {
-    transition: 0.5s;
-    color: hsl(0deg, 0%, 52%);
-    font-weight: 600;
-    padding: 0.15rem 0.5rem;
-    border: 2px solid rgb(212, 205, 205);
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .countries-container .mini-btns .page-btns:hover {
-    transform: scale(1.05);
-  }
-  .countries-container .mini-btns #previous-icon, .countries-container .mini-btns #next-icon {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    top: 50%;
-  }
-  .countries-container .mini-btns #previous-icon {
-    left: 2.25%;
-  }
-  .countries-container .mini-btns #next-icon {
-    right: 2.25%;
   }
   .country-card-selected .country-selected-flag {
     width: 450px;
@@ -691,12 +664,47 @@ header .theme-container p {
     font-size: 1.5rem;
   }
 }
+@media screen and (min-width: 850px) {
+  .countries-container .mini-btns .page-btns {
+    transition: 0.5s;
+    color: hsl(0deg, 0%, 52%);
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border: 2px solid rgb(212, 205, 205);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .countries-container .mini-btns .page-btns:hover {
+    transform: scale(1.05);
+  }
+  .countries-container .mini-btns #previous-icon, .countries-container .mini-btns #next-icon {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+  }
+  .countries-container .mini-btns #previous-icon {
+    left: 2.25%;
+  }
+  .countries-container .mini-btns #next-icon {
+    right: 2.25%;
+  }
+}
 @media screen and (min-width: 950px) {
+  .countries-container {
+    gap: 4rem;
+  }
   .countries-container .country-card {
     width: 330px;
   }
   .countries-container .country-card img {
     height: 200px;
+  }
+  .countries-container .country-list.current {
+    gap: 4rem;
+  }
+  .countries-container .mini-btns {
+    margin-bottom: -2rem;
   }
 }
 @media screen and (min-width: 1100px) {
